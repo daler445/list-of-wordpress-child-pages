@@ -31,6 +31,8 @@ In theme files:
 - **link_target** - (string) open page in current/new tab
 - **if_active** - (string) class name, if menu item is active
 - **if_null_return** - (string) return message, if no child pages found
+- **order_by** - (string) order pages by field
+- **order** - (string) ASC or DESC order
 
 **Pre-defined values for parameters:**
 - **theme** ```<li id="lof_page_{page_id}" class="lof_page {page_active_class}"><a href="{link}" target="{link_target}">{title}</a></li>```
@@ -42,7 +44,9 @@ In theme files:
 - **link_target** -       ```_self```
 - **if_active** -         ```lof_page_active```
 - **if_null_return**  -   ```null```
+- **order_by** - ```menu_order```
+- **order** - ```ASC```
 
 **TODO:**
 - **Show parent**
-- **Add order parameters**
+- ~~Add order parameters~~
