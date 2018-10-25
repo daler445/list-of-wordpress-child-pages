@@ -13,21 +13,25 @@
 				$default_theme = "<li id=\"lof_page_{page_id}\" class=\"lof_page {page_active_class}\"><a href=\"{link}\" target=\"{link_target}\">{title}</a></li>";
 
 				$a = shortcode_atts( array(
-					'theme' => $default_theme,											// custom theme
-					'pre_code'	=>	'<ul class="list_of_pages">',						// pre code
-					'post_code'	=>	'</ul>',											// post code
-					'link_target' => '_self',											// open in new target
-					'if_active'	=>	'lof_page_active',									// if current page - add `active` class
-					'widget_pre_title'	=>	'<h4 class=\"widgettitle\">',				// widget pre title code
-					'widget_post_title'	=>	'</h4>',									// widget post title code
-					'widget_title'	=>	null,											// widget title, default null
-					'if_null_return'	=>	null,										// display message if no child page found
+					'theme' => $default_theme,						// custom theme
+					'pre_code'		=>	'<ul class="list_of_pages">',		// pre code
+					'post_code'		=>	'</ul>',				// post code
+					'link_target' 		=>	'_self',				// open in new target
+					'if_active'		=>	'lof_page_active',			// if current page - add `active` class
+					'widget_pre_title'	=>	'<h4 class=\"widgettitle\">',		// widget pre title code
+					'widget_post_title'	=>	'</h4>',				// widget post title code
+					'widget_title'		=>	null,					// widget title, default null
+					'if_null_return'	=>	null,					// display message if no child page found
+					'order_by'		=>	'menu_order',				// order pages by field
+					'order'			=>	'ASC',					// ASC or DESC order
 				), $atts );
 
 				$args = array(
 					'post_type'		=>		'page',
-					'numberposts'	=>		-1,
-					'post_status'	=>		'publish'
+					'numberposts'		=>		-1,
+					'post_status'		=>		'publish',
+					'orderby' 		=> 		$a['order_by'], 
+					'order'			=>		$a['order'],
 				);
 
 				if ( is_page() && $post->post_parent ) {	// subpage
